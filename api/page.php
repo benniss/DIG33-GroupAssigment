@@ -1,7 +1,16 @@
-get_page()
+<?php
 
-post_page()
+/* This is the API for each page's contents */
 
-update_page()
+// link to the database connection file
+require '..\connect.php';
 
-delete_page()
+get_page();
+
+post_page();
+
+update_page();
+
+delete_page();
+
+?>

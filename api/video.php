@@ -1,7 +1,16 @@
-get_video()
+<?php
 
-post_video()
+/* This is the API for the companies products */
 
-update_video()
+// link to the database connection file
+require '..\connect.php';
 
-delete_video()
+get_video();
+
+post_video();
+
+update_video();
+
+delete_video();
+
+?>

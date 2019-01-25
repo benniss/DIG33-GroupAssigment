@@ -1,11 +1,22 @@
-get_cart()
+<?php
 
-post_cart()
+/* This is the API for the shopping cart */
 
-update_cart()
+// link to the database connection file
+require '..\connect.php';
 
-delete_cart()
+get_cart();
 
-add_product()
+post_cart();
 
-delete_product()
+update_cart();
+
+delete_cart();
+
+add_product();
+
+delete_product();
+
+
+
+?>

@@ -1,7 +1,16 @@
-get_user()
+<?php
 
-post_user()
+/* This is the API for the companies products */
 
-update_user()
+// link to the database connection file
+require '..\connect.php';
 
-delete_user()
+get_user();
+
+post_user();
+
+update_user();
+
+delete_user();
+
+?>

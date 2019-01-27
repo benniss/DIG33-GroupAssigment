@@ -23,7 +23,7 @@
   $videos->youtube_url = $data->youtube_url;
   
   // Create category
-  if($videos->create()) {
+  if($videos->create_video()) {
     echo json_encode(
       array('message' => 'Video has been created')
     );

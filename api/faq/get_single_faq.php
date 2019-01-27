@@ -11,22 +11,22 @@
   $db = $database->connect();
   
   // Instantiate FAQ object
-  $faqs = new Faq($db);
+  $faq = new Faq($db);
   
   // Get ID
-  $faqs->id = isset($_GET['id']) ? $_GET['id'] : die();
+  $faq->id = isset($_GET['id']) ? $_GET['id'] : die();
   
   // Get FAQ
-  $faqs->get_single();
+  $faq->get_single_faq();
   
   //create array
   $faqs_arr = array(
-	'id' => $faqs->id,
-	'question' => $faqs->question,
-	'answer' => $faqs->answer
+	'id' => $faq->id,
+	'question' => $faq->question,
+	'answer' => $faq->answer
   );
   
   // convert to JSON database
-  print_r(json_encode($contacts_arr));
+  print_r(json_encode($faqs_arr));
   
   

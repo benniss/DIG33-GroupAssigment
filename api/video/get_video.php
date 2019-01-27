@@ -11,10 +11,10 @@
   $db = $database->connect();
   
   // Instantiate video object
-  $videos = new Video($db);
+  $video = new Video($db);
   
   // Video query
-  $result = $videos->read();  
+  $result = $video->get_video();  
   // Get row count
   $num = $result->rowCount();
   
@@ -27,7 +27,7 @@
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
       extract($row);
 	  
-      $videos_item = array(
+      $video_item = array(
         'id' => $id,
         'title' => $title,
         'description' => $description,
@@ -35,8 +35,8 @@
       );
 	  
       // Push to "data"
-      array_push($videos_arr, $videos_item);
-      array_push($videos_arr['data'], $video_item);
+      array_push($videos_arr, $video_item);
+      //array_push($videos_arr['data'], $video_item);
     }
 	
     // Turn to JSON & output

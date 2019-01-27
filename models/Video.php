@@ -1,5 +1,5 @@
 <?php
-  class Video {
+  class Video{
     // Database connection and table information
     private $conn;
     private $table = 'videos';
@@ -11,9 +11,9 @@
     public $youtube_url;
 	
     // Constructor for the Database
-    public function __construct($db) {
-      $this->conn = $db;
-    }
+		public function __construct($db) {
+			$this->conn = $db;
+		}
 	
     // Get the videos from the database
     public function get_video() {
@@ -26,7 +26,7 @@
       FROM
         ' . $this->table . '
       ORDER BY
-        id ASC';
+        id DESC';
 		
       // Prepare the statement
       $stmt = $this->conn->prepare($query);
@@ -37,7 +37,7 @@
       return $stmt;
     }
 	
-    // Get a single video
+	    // Get a single video
   public function get_single_video(){
     // Create query
     $query = 'SELECT
@@ -162,4 +162,5 @@
 	
     return false;
     }
+
   }

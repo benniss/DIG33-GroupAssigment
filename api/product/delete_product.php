@@ -22,7 +22,7 @@
   $product->id = $data->id;
   
   // Delete product
-  if($product->delete()) {
+  if($product->delete_product()) {
     echo json_encode(
       array('message' => 'Post Deleted')
     );

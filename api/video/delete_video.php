@@ -13,16 +13,16 @@
   $db = $database->connect();
   
   // Instantiate blog category object
-  $videos = new Video($db);
+  $video = new Video($db);
   
   // Get raw categoryed data
   $data = json_decode(file_get_contents("php://input"));
   
   // Set ID to update
-  $videos->id = $data->id;
+  $video->id = $data->id;
   
   // Delete category
-  if($videos->delete()) {
+  if($video->delete_video()) {
     echo json_encode(
       array('message' => 'Video has been deleted')
     );

@@ -29,7 +29,7 @@
   $product->type_id = $data->type_id;
   
   // Update product
-  if($product->update()) {
+  if($product->update_product()) {
     echo json_encode(
       array('message' => 'Post Updated')
     );

@@ -13,20 +13,20 @@
   $db = $database->connect();
   
   // Instantiate video object
-  $videos = new Video($db);
+  $video = new Video($db);
   
   // Get raw video data
   $data = json_decode(file_get_contents("php://input"));
   
   // Set ID to update
-  $videos->id = $data->id;
+  $video->id = $data->id;
   
-  $videos->title = $data->title;
-  $videos->description = $data->description;
-  $videos->youtube_url = $data->youtube_url;
+  $video->title = $data->title;
+  $video->description = $data->description;
+  $video->youtube_url = $data->youtube_url;
   
   // Update video
-  if($videos->update()) {
+  if($video->update_video()) {
     echo json_encode(
       array('message' => 'Video has been updated')
     );

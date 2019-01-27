@@ -13,17 +13,17 @@
   $db = $database->connect();
   
   // Instantiate contact object
-  $contacts = new Contact($db);
+  $contact = new Contact($db);
   
   // Get raw contact data
   $data = json_decode(file_get_contents("php://input"));
   
-  $contacts->title = $data->title;
-  $contacts->description = $data->description;
-  $contacts->youtube_url = $data->youtube_url;
+  $contact->title = $data->title;
+  $contact->description = $data->description;
+  $contact->youtube_url = $data->youtube_url;
   
   // Create contact
-  if($contacts->create()) {
+  if($contact->create_contact()) {
     echo json_encode(
       array('message' => 'Contact has been created')
     );

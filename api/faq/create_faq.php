@@ -13,16 +13,16 @@
   $db = $database->connect();
   
   // Instantiate FAQ object
-  $faqs = new Faq($db);
+  $faq = new Faq($db);
   
   // Get raw posted data
   $data = json_decode(file_get_contents("php://input"));
   
-  $faqs->question = $data->question;
-  $faqs->answer = $data->answer;
+  $faq->question = $data->question;
+  $faq->answer = $data->answer;
   
   // Create FAQ
-  if($faqs->create()) {
+  if($faq->create_faq()) {
     echo json_encode(
       array('message' => 'FAQ has been created')
     );

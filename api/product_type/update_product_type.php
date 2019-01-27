@@ -25,7 +25,7 @@
   $product_type->description = $data->description;
   
   // Update product type
-  if($product_type->update()) {
+  if($product_type->update_product_type()) {
     echo json_encode(
       array('message' => 'Product type has been updated')
     );

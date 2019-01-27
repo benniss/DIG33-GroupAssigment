@@ -13,16 +13,16 @@
   $db = $database->connect();
   
   // Instantiate contact object
-  $contacts = new Contact($db);
+  $contact = new Contact($db);
   
   // Get raw contact data
   $data = json_decode(file_get_contents("php://input"));
   
   // Set ID to update
-  $contacts->id = $data->id;
+  $contact->id = $data->id;
   
   // Delete contact
-  if($contacts->delete()) {
+  if($contact->delete_contact()) {
     echo json_encode(
       array('message' => 'Contact has been deleted')
     );

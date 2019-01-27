@@ -11,10 +11,10 @@
   $db = $database->connect();
   
   // Instantiate contact object
-  $contacts = new Contact($db);
+  $contact = new Contact($db);
   
   // Contacts query
-  $result = $contacts->read();  
+  $result = $contact->get_contact();  
   // Get row count
   $num = $result->rowCount();
   

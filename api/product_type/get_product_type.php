@@ -21,25 +21,25 @@
   // Check if any product types
   if($num > 0) {
     // Video array
-    $product_type_arr = array();
-    $product_type_arr['data'] = array();
+    $product_types_arr = array();
+    $product_types_arr['data'] = array();
 	
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
       extract($row);
 	  
-      $product_type_item = array(
+      $product_types_item = array(
         'id' => $id,
         'type' => type,
         'description' => $description
       );
 	  
       // Push to "data"
-      array_push($product_type_arr, $product_type_item);
-      array_push($product_type_arr['data'], $product_type_item);
+      array_push($product_types_arr, $product_types_item);
+      array_push($product_types_arr['data'], $product_types_item);
     }
 	
     // Turn to JSON & output
-    echo json_encode($product_type_arr);
+    echo json_encode($product_types_arr);
 	
   } else {
     // No Product types

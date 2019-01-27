@@ -11,20 +11,20 @@
   $db = $database->connect();
   
   // Instantiate blog category object
-  $videos = new Video($db);
+  $video = new Video($db);
   
   // Get ID
-  $videos->id = isset($_GET['id']) ? $_GET['id'] : die();
+  $video->id = isset($_GET['id']) ? $_GET['id'] : die();
   
   // Get category
-  $videos->get_single();
+  $video->get_single_video();
   
   //create array
   $videos_arr = array(
-	'id' => $videos->id,
-	'title' => $videos->title,
-	'description' => $videos->description,
-	'youtube_url' => $videos->youtube_url
+	'id' => $video->id,
+	'title' => $video->title,
+	'description' => $video->description,
+	'youtube_url' => $video->youtube_url
   );
   
   // convert to JSON database

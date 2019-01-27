@@ -22,7 +22,7 @@
   $product_type->id = $data->id;
   
   // Delete category
-  if($product_type->delete()) {
+  if($product_type->delete_product_type()) {
     echo json_encode(
       array('message' => 'Product type has been deleted')
     );

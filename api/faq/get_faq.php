@@ -11,10 +11,10 @@
   $db = $database->connect();
   
   // Instantiate FAQ object
-  $faqs = new Faq($db);
+  $faq = new Faq($db);
   
   // FAQ query
-  $result = $faqs->read();  
+  $result = $faq->get_faq();  
   // Get row count
   $num = $result->rowCount();
   

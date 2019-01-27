@@ -11,25 +11,25 @@
   $db = $database->connect();
   
   // Instantiate customer object
-  $customers = new Customer($db);
+  $customer = new Customer($db);
   
   // Get ID
-  $customers->id = isset($_GET['id']) ? $_GET['id'] : die();
+  $customer->id = isset($_GET['id']) ? $_GET['id'] : die();
   
   // Get customer
-  $customers->get_single();
+  $customer->get_single_customer();
   
   //create array
   $customers_arr = array(
-	'id' => $customers->id,
-	'first_name' => $customers->first_name,
-	'last_name' => $customers->last_name,
-	'address' => $customers->address,
-	'city' => $customers->city,
-	'state' => $customers->state,
-	'pcode' => $customers->pcode,
-	'phone' => $customers->phone,
-	'email' => $customers->email
+	'id' => $customer->id,
+	'first_name' => $customer->first_name,
+	'last_name' => $customer->last_name,
+	'address' => $customer->address,
+	'city' => $customer->city,
+	'state' => $customer->state,
+	'pcode' => $customer->pcode,
+	'phone' => $customer->phone,
+	'email' => $customer->email
   );
   
   // convert to JSON database

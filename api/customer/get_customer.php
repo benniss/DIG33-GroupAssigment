@@ -11,10 +11,10 @@
   $db = $database->connect();
   
   // Instantiate customer object
-  $customers = new Customer($db);
+  $customer = new Customer($db);
   
   // Customer query
-  $result = $customers->read();  
+  $result = $customer->get_customer();  
   // Get row count
   $num = $result->rowCount();
   

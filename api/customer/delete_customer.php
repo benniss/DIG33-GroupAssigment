@@ -13,16 +13,16 @@
   $db = $database->connect();
   
   // Instantiate customer object
-  $customers = new Customer($db);
+  $customer = new Customer($db);
   
   // Get raw customer data
   $data = json_decode(file_get_contents("php://input"));
   
   // Set ID to update
-  $customers->id = $data->id;
+  $customer->id = $data->id;
   
   // Delete customer
-  if($customers->delete()) {
+  if($customer->delete_customer()) {
     echo json_encode(
       array('message' => 'Customer has been deleted')
     );

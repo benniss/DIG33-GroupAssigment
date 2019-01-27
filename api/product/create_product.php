@@ -26,7 +26,7 @@
   $product->type_id = $data->type_id;
   
   // Create product
-  if($product->create()) {
+  if($product->create_product()) {
     echo json_encode(
       array('message' => 'Post Created')
     );

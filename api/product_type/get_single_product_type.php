@@ -17,16 +17,16 @@
   $product_type->id = isset($_GET['id']) ? $_GET['id'] : die();
   
   // Get product type
-  $product_type->get_single();
+  $product_type->get_single_product_type();
   
   //create array
-  $product_type_arr = array(
+  $product_types_arr = array(
 	'id' => $product_type->id,
 	'type' => $product_type->type,
 	'description' => $product_type->description
   );
   
   // convert to JSON database
-  print_r(json_encode($product_type_arr));
+  print_r(json_encode($product_types_arr));
   
   

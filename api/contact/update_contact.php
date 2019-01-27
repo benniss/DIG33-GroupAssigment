@@ -13,20 +13,20 @@
   $db = $database->connect();
   
   // Instantiate video object
-  $contacts = new Contact($db);
+  $contact = new Contact($db);
   
   // Get raw video data
   $data = json_decode(file_get_contents("php://input"));
   
   // Set ID to update
-  $contacts->id = $data->id;
+  $contact->id = $data->id;
   
-  $contacts->title = $data->title;
-  $contacts->description = $data->description;
-  $contacts->email = $data->email;
+  $contact->title = $data->title;
+  $contact->description = $data->description;
+  $contact->email = $data->email;
   
   // Update video
-  if($contacts->update()) {
+  if($contact->update_contact()) {
     echo json_encode(
       array('message' => 'Contact has been updated')
     );

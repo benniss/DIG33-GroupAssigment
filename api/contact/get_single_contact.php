@@ -11,20 +11,20 @@
   $db = $database->connect();
   
   // Instantiate contact object
-  $contacts = new Contact($db);
+  $contact = new Contact($db);
   
   // Get ID
-  $contacts->id = isset($_GET['id']) ? $_GET['id'] : die();
+  $contact->id = isset($_GET['id']) ? $_GET['id'] : die();
   
   // Get contact
-  $contacts->get_single();
+  $contact->get_single_contact();
   
   //create array
   $contacts_arr = array(
-	'id' => $contacts->id,
-	'title' => $contacts->title,
-	'description' => $contacts->description,
-	'email' => $contacts->email
+	'id' => $contact->id,
+	'title' => $contact->title,
+	'description' => $contact->description,
+	'email' => $contact->email
   );
   
   // convert to JSON database

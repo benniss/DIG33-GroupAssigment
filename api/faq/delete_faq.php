@@ -13,16 +13,16 @@
   $db = $database->connect();
   
   // Instantiate FAQ object
-  $faqs = new Faq($db);
+  $faq = new Faq($db);
   
   // Get raw FAQ data
   $data = json_decode(file_get_contents("php://input"));
   
   // Set ID to update
-  $faqs->id = $data->id;
+  $faq->id = $data->id;
   
   // Delete category
-  if($faqs->delete()) {
+  if($faq->delete_faq()) {
     echo json_encode(
       array('message' => 'Contact has been deleted')
     );

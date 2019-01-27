@@ -22,7 +22,7 @@
   $product_type->description = $data->description;
   
   // Create product type
-  if($product_type->create()) {
+  if($product_type->create_product_type()) {
     echo json_encode(
       array('message' => 'Product type has been created')
     );

@@ -17,7 +17,7 @@
   $product->id = isset($_GET['id']) ? $_GET['id'] : die();
   
   // Get Product
-  $product->read_single();
+  $product->get_single_product();
   
   //create array
   $product_arr = array(

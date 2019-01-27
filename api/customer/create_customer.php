@@ -13,22 +13,22 @@
   $db = $database->connect();
   
   // Instantiate category object
-  $customers = new Customer($db);
+  $customer = new Customer($db);
   
   // Get raw posted data
   $data = json_decode(file_get_contents("php://input"));
   
-  $customers->first_name = $data->first_name;
-  $customers->last_name = $data->last_name;
-  $customers->address = $data->address;
-  $customers->city = $data->city;
-  $customers->state = $data->state;
-  $customers->pcode = $data->pcode;
-  $customers->phone = $data->phone;
-  $customers->email = $data->email;
+  $customer->first_name = $data->first_name;
+  $customer->last_name = $data->last_name;
+  $customer->address = $data->address;
+  $customer->city = $data->city;
+  $customer->state = $data->state;
+  $customer->pcode = $data->pcode;
+  $customer->phone = $data->phone;
+  $customer->email = $data->email;
   
   // Create Customer
-  if($customers->create()) {
+  if($customer->create_customer()) {
     echo json_encode(
       array('message' => 'Customer has been created')
     );

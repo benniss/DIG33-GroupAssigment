@@ -14,7 +14,7 @@
   $product = new Product($db);
   
   // Product query
-  $result = $product->read();  
+  $result = $product->get_product();  
   // Get row count
   $num = $result->rowCount();
   

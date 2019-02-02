@@ -1,5 +1,5 @@
 <?php
-  class Contact {
+  class Customer {
     // Database connection and table information
     private $conn;
     private $table = 'customers';
@@ -20,7 +20,7 @@
       $this->conn = $db;
     }
 	
-    // Get the contacts from the database
+    // Get the customers from the database
     public function get_customer() {
       // Create the query
       $query = 'SELECT
@@ -36,7 +36,7 @@
       FROM
         ' . $this->table . '
       ORDER BY
-        id ASC';
+        id DESC';
 		
       // Prepare the statement
       $stmt = $this->conn->prepare($query);
@@ -84,7 +84,7 @@
       $this->state = $row['state'];
       $this->pcode = $row['pcode'];
       $this->phone = $row['phone'];
-      $this->youtube_url = $row['email'];
+      $this->email = $row['email'];
   }
   
   // Create a new customer

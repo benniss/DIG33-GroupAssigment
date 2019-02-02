@@ -35,7 +35,7 @@
 	  
       // Push to "data"
       array_push($faqs_arr, $faqs_item);
-      array_push($faqs_arr['data'], $faqs_item);
+      //array_push($faqs_arr['data'], $faqs_item);
     }
 	
     // Turn to JSON & output

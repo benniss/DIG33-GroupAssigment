@@ -10,24 +10,24 @@
   $database = new Database();
   $db = $database->connect();
   
-  // Instantiate customer object
+  // Instantiate contact object
   $customer = new Customer($db);
   
-  // Customer query
+  // Contacts query
   $result = $customer->get_customer();  
   // Get row count
   $num = $result->rowCount();
   
   // Check if there are any customers
   if($num > 0) {
-    // Video array
-    $customers_arr = array();
+    // Customer array
+   $customers_arr = array();
     $customers_arr['data'] = array();
 	
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
       extract($row);
 	  
-      $customers_item = array(
+      $customer_item = array(
         'id' => $id,
         'first_name' => $first_name,
         'last_name' => $last_name,
@@ -40,15 +40,15 @@
       );
 	  
       // Push to "data"
-      array_push($customers_arr, $customers_item);
-      array_push($customers_arr['data'], $customers_item);
+      array_push($customers_arr, $customer_item);
+      array_push($customers_arr['data'], $customer_item);
     }
 	
     // Turn to JSON & output
     echo json_encode($customers_arr);
 	
   } else {
-    // No customers
+    // No Customers
     echo json_encode(
       array('message' => 'No Customers have been found')
     );

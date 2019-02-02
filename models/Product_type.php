@@ -14,7 +14,7 @@
       $this->conn = $db;
     }
 	
-    // Get the product types from the database
+    // Get the product_types from the database
     public function get_product_type() {
       // Create the query
       $query = 'SELECT
@@ -24,7 +24,7 @@
       FROM
         ' . $this->table . '
       ORDER BY
-        id ASC';
+        id DESC';
 		
       // Prepare the statement
       $stmt = $this->conn->prepare($query);
@@ -35,7 +35,7 @@
       return $stmt;
     }
 	
-    // Get a single product type
+    // Get a single product_type
   public function get_single_product_type(){
     // Create query
     $query = 'SELECT
@@ -63,7 +63,7 @@
       $this->description = $row['description'];
   }
   
-  // Create a new product type
+  // Create a new product_type
   public function create_product_type() {
     // Create the Query
     $query = 'INSERT INTO ' .
@@ -81,20 +81,20 @@
   
   // Bind data
   $stmt-> bindParam(':type', $this->type);
-  $stmt-> bindParam(':description', $this->description)
+  $stmt-> bindParam(':description', $this->description);
   
   // Execute query
   if($stmt->execute()) {
     return true;
   }
   
-  // Print error if product type fails to be created
+  // Print error if product_type fails to be created
   printf("Error: $s.\n", $stmt->error);
   
   return false;
   }
   
-  // Update a product type
+  // Update a product_type
   public function update_product_type() {
     // Create Query
     $query = 'UPDATE ' .
@@ -123,13 +123,13 @@
     return true;
   }
   
-  // Print error if procduct type fails to be updated
+  // Print error if product_type fails to be updated
   printf("Error: $s.\n", $stmt->error);
   
   return false;
   }
   
-  // Delete a product type
+  // Delete a product_type
   public function delete_product_type() {
     // Create query
     $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
@@ -148,7 +148,7 @@
       return true;
     }
 	
-    // Print error if product type is unable to be deleted
+    // Print error if product_type is unable to be deleted
     printf("Error: $s.\n", $stmt->error);
 	
     return false;

@@ -1,5 +1,5 @@
 <?php
-	class Post{
+	class Product{
 		// Database connection and table information
 		private $conn;
 		private $table = 'products';
@@ -12,7 +12,7 @@
 		public $cost;
 		public $image_url;
 		public $type_id;
-		public $type_type;
+		public $type_name;
 	
 	
 		// Constructor with DB
@@ -24,20 +24,20 @@
 		public function get_product(){
 			//Create Query
 			$query = 'SELECT 
-				t.type as type_type,
+				t.type as type_name,
 				p.id,
+				p.type_id,
 				p.name,
 				p.description,
 				p.size,
 				p.cost,
-				p.image_url,
-				p.type_id
+				p.image_url
 			FROM
 				' . $this->table. ' p
 			LEFT JOIN
 				product_type t ON p.type_id = t.id
 			ORDER BY
-				p.it ASC';
+				p.id DESC';
 			
 			//Prepare statement
 			$stmt = $this->conn->prepare($query);
